@@ -1,13 +1,15 @@
 # sec-crawl
 [![CircleCI](https://circleci.com/gh/bobctr/sec-crawl.svg?style=svg)](https://circleci.com/gh/bobctr/sec-crawl)
-
 Scraper that collects cybersecurity news from the web
 
 ## Requirements
   - Scrapy
   - Pymongo
 
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
+  
   
   
 ### Data storing
