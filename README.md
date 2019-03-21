@@ -1,5 +1,6 @@
 # sec-crawl
 [![CircleCI](https://circleci.com/gh/bobctr/sec-crawl.svg?style=svg)](https://circleci.com/gh/bobctr/sec-crawl)
+
 Scraper that collects cybersecurity news from the web
 
 ## Requirements
