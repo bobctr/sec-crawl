@@ -8,9 +8,10 @@ Scraper that collects cybersecurity news from the web
   - Pymongo
 
 ```pip install -r requirements.txt```
-
-## Scraped websites (so far)
-  - SECURITY | Wired https://www.wired.com/category/security/
   
-## Data storing
+  
+### Data storing
 Scraped news are stored in a MongoDB local instance accessible at ```localhost:27017```
+
+### Scraped websites (so far)
+  - SECURITY | Wired https://www.wired.com/category/security/
