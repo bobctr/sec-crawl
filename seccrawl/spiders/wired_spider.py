@@ -1,18 +1,29 @@
 import scrapy
+from ..items import SeccrawlItem
 
 class WiredSpider(scrapy.Spider):
     name = "wired"
+    start_urls = [
+        "https://www.wired.com/category/security"
+    ]
 
     def start_requests(self):
-        urls = [
-            "https://www.wired.com/category/security"
-        ]
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
+        for u in self.start_urls:
+            yield scrapy.Request(u, callback=self.parse)
 
     def parse(self, response):
-        page = response.url.split("/")[-2]
-        filename = '%s-%s.html' % (self.name, page)
-        with open(filename, 'wb') as f:
-            f.write(response.body)
-        self.log('Saved file %s' % filename)
+        for href in response.css("div.card-component a:not([href^='/author'])::attr(href)").extract():
+            request = scrapy.Request(
+                'https://www.wired.com' + href,
+                callback = self.parse_article
+            )
+            yield request
+
+    def parse_article(self, response):
+        item = SeccrawlItem()
+        item['url'] = response.url
+        item['title'] = response.css('h1.title::text').get()
+        item['author'] = response.css('a[rel="author"]::text').get()
+        item['text'] = response.xpath('normalize-space(//article)').get()                  
+        return item
+        
