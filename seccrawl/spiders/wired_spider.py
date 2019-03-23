@@ -21,7 +21,7 @@ class WiredSpider(scrapy.Spider):
 
     def parse_article(self, response):
         item = SeccrawlItem()
-        item['url'] = response.url
+        item['_id'] = response.url
         item['title'] = response.css('h1.title::text').get()
         item['author'] = response.css('a[rel="author"]::text').get()
         item['text'] = response.xpath('normalize-space(//article)').get()                  

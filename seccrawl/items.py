@@ -8,7 +8,7 @@
 import scrapy
 
 class SeccrawlItem(scrapy.Item):
-    url = scrapy.Field()
+    _id = scrapy.Field()
     title = scrapy.Field()
     author = scrapy.Field()
     text = scrapy.Field()

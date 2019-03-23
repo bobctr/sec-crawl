@@ -37,8 +37,8 @@ class MongoDBPipeline(object):
             if data is None:
                 raise DropItem ("Missing {0}!".format(data))
         self.db[self.collection_name].update_one(
-            {'_id' : item['url']},
-            {'$set' : {item['url'] : dict(item)}},
+            {'_id' : item['_id']},
+            {'$set' : dict(item)},
             upsert = True
         )
 
