@@ -22,7 +22,7 @@ To launch the service:
 python server/run.py
 ```
 
-To make a request of all the news do make a GET request to ```http://127.0.0.1:5000/news```
+To get all the news, make a GET request to ```http://127.0.0.1:5000/news```
 
 ### Scraped websites (so far)
   - SECURITY | Wired https://www.wired.com/category/security/
