@@ -4,16 +4,31 @@
 Scraper that collects cybersecurity news from the web
 
 ## Requirements
+  - Python3
+  - MongoDB
   - Scrapy
   - Pymongo
   - Eve
 
+## Setup
+Before running the crawler, make sure the MongoDB service is up and running.
 ```
-pip install -r requirements.txt
+mongod
+```
+
+Now the crawler can store the scraped data.
+You can launch all the available spiders together (scrape all websites) with the following command:
+```
+python run_crawler.py
+```
+If you want to launch a single spider instead (scrape only one website)
+```
+scrapy crawl [spider_name]
 ```
 
 ### Data storing
 Scraped news are stored in a MongoDB local instance accessible at ```localhost:27017```
+The name of the database is ```sec-crawl```.
 
 ### REST API
 The stored data can be retrieved through a REST API service.
