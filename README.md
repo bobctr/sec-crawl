@@ -17,9 +17,9 @@ mongod
 ```
 
 Now the crawler can store the scraped data.
-You can launch all the available spiders together (scrape all websites) with the following command:
+You can launch all the available spiders together (scrape all websites) with the following command (add ```-p``` to run the spiders parallel)
 ```
-python run_crawler.py
+python run_crawler.py -p
 ```
 If you want to launch a single spider instead (scrape only one website)
 ```
@@ -37,7 +37,8 @@ To launch the service:
 python server/run.py
 ```
 
-To get all the news, make a GET request to ```http://127.0.0.1:5000/news```
+To get all the news, make a GET request to ```http://localhost:5000/news```
 
 ### Scraped websites (so far)
   - SECURITY | Wired https://www.wired.com/category/security/
+  - The Hacker News https://www.thehackernews.com

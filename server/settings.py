@@ -1,6 +1,5 @@
 DOMAIN = {
     'news':{
-        #'allow_unknown': True,
         'schema':{
             '_id':{
                 'type':'string',
@@ -12,6 +11,15 @@ DOMAIN = {
                 'type':'string',
             },
             'text':{
+                'type':'string',            
+            },
+            'date':{
+                'type':'string',            
+            },
+            'image':{
+                'type':'string',            
+            },
+            'website':{
                 'type':'string',            
             }
         }
