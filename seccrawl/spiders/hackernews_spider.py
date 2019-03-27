@@ -34,9 +34,7 @@ class HNSpider(scrapy.Spider):
             '//div[contains(@class, "articlebody")]//div[@dir="ltr"]/text()'
         ).extract()
 
-        messy_date = response.xpath(
-            '//div[@class="postmeta"]/span/text()'
-        ).get()
+        messy_date = response.xpath('//div[@class="postmeta"]/span/text()').get()
         item['date'] = format_date(
             messy_date,
             self.website_date_format

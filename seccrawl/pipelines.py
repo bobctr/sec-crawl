@@ -7,7 +7,6 @@
 
 import pymongo
 from scrapy.exceptions import DropItem
-from scrapy import log
 import scrapy
 import json
 
@@ -42,8 +41,7 @@ class MongoDBPipeline(object):
             upsert = True
         )
 
-        log.msg(
-            "News added to MongoDB database!",
-            level=log.DEBUG, spider=spider
+        spider.log(
+            "News added to MongoDB database!"
         )
         return item

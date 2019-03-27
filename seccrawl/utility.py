@@ -7,14 +7,16 @@ def format_date(date_string, origin_format, new_format = DATE_STD_FORMAT):
         format common to all the spiders
 
         Arguments:
-            data_string {string} -- scraped string
-            containing the date
+            data_string {string} -- string
+                containing the date
+
+        Raises:
+            ValueError: if the string is not a date
 
         Returns:
             {string} -- the formatted string if 
-            successful, the old string otherwise
+                successful, the old string otherwise
         '''
-
     try:
         date = datetime.strptime(date_string, origin_format)
     except ValueError:
