@@ -3,6 +3,26 @@
 
 Scraper that collects cybersecurity news from the web
 
+## References
+https://en.wikipedia.org/wiki/Web_scraping
+https://scrapy.org/
+
+## What I have learned
+Since the purpose of this project is mainly heuristic, I would like to point out a few key concepts I've learned about during my work:
+
+  - what scraping is, how it works and how powerful can be
+  - how to use **scrapy** to quickly implement a scraper basic structure
+  - producing web requests and parsing the response using **xpath and css selectors** to extract significant data
+  - **MongoDB database**, how it differs from relational databases, how to create an instance **to store scraped data** in and how to use the Mongo shell
+  - how to use **Tor** (and **privoxy** to support SOCKS protocol) to prevent scraped websites from tracking your activity
+  - how to set up a simple read-only **REST API interface** for the database
+  - key Python modules used:
+     * _scrapy_  -- for the web scraper
+     * _pymongo_ -- MongoDB python API
+     * _eve_     -- for setting up the REST server
+     
+--------------------------------------------------------------------
+
 ## Requirements
   - Python3
   - MongoDB
