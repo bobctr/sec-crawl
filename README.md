@@ -5,6 +5,7 @@ Scraper that collects cybersecurity news from the web
 
 ## References
 https://en.wikipedia.org/wiki/Web_scraping
+
 https://scrapy.org/
 
 ## What I have learned
