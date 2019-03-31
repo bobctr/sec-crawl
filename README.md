@@ -37,6 +37,6 @@ Since the purpose of this project is mainly heuristic, I would like to point out
 
 ## Setup
 
-- [Scraper](.tree/master/seccrawl)
-- [REST server](.tree/master/server)
-- [React client](.tree/master/sec-crawl-react)
+- [Scraper](seccrawl)
+- [REST server](server)
+- [React client](sec-crawl-react)
