@@ -1,7 +1,7 @@
 # sec-crawl
 [![CircleCI](https://circleci.com/gh/bobctr/sec-crawl.svg?style=svg)](https://circleci.com/gh/bobctr/sec-crawl)
 
-Scraper that collects cybersecurity news from the web
+Scraper that collects cybersecurity news from the web + React REST Client 
 
 ## References
 https://en.wikipedia.org/wiki/Web_scraping
@@ -11,7 +11,8 @@ https://scrapy.org/
 ## What I have learned
 Since the purpose of this project is mainly heuristic, I would like to point out a few key concepts I've learned about during my work:
 
-  - what scraping is, how it works and how powerful can be
+### Web Scraper and server
+  - what scraping is, how it works and how powerful can beand server
   - how to use **scrapy** to quickly implement a scraper basic structure
   - producing web requests and parsing the response using **xpath and css selectors** to extract significant data
   - **MongoDB database**, how it differs from relational databases, how to create an instance **to store scraped data** in and how to use the Mongo shell
@@ -21,8 +22,15 @@ Since the purpose of this project is mainly heuristic, I would like to point out
      * _scrapy_  -- for the web scraper
      * _pymongo_ -- MongoDB python API
      * _eve_     -- for setting up the REST server
-     
+
+### React client
+  - **React libraries and structure** (JSX, components, props and state)
+  - how to use **Material-UI** framework to create nice-looking and fluid UX
+  -  
+
+
 --------------------------------------------------------------------
+
 
 ## Requirements
   - Python3
@@ -89,6 +97,8 @@ python server/run.py
 ```
 
 To get all the news, make a GET request to ```http://localhost:5000/news```
+
+
 
 ## Scraped websites (so far)
   - SECURITY | Wired https://www.wired.com/category/security/

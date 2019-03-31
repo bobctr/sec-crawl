@@ -10,6 +10,7 @@ from scrapy.exceptions import DropItem
 import scrapy
 import json
 
+
 class MongoDBPipeline(object):
     collection_name = 'news'
 

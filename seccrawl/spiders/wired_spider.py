@@ -9,12 +9,12 @@ class WiredSpider(scrapy.Spider):
     ]
     website_date_format = "%m.%d.%y"
 
-    def start_requests(self):
-        for u in self.start_urls:
-            yield scrapy.Request(u, callback=self.parse)
-
     def parse(self, response):
-        for href in response.css("div.card-component a:not([href^='/author'])::attr(href)").extract():
+        path = (
+            '(//li[contains(@class, "card-component__image")]'
+            '//a[starts-with(@href, "/story")]//@href)'
+        )
+        for href in response.xpath(path).extract():
             request = scrapy.Request(
                 'https://www.wired.com' + href,
                 callback = self.parse_article
@@ -22,6 +22,7 @@ class WiredSpider(scrapy.Spider):
             yield request
 
     def parse_article(self, response):
+        '''Parses the article to fill the item'''
         item = SeccrawlItem()
         item['_id'] = response.url
         item['website'] = 'Security | WIRED'

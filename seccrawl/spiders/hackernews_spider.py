@@ -2,6 +2,7 @@ import scrapy
 from ..items import SeccrawlItem
 from ..utility import format_date
 
+
 class HNSpider(scrapy.Spider):
     name = "thehackernews"
     start_urls = [
@@ -9,19 +10,30 @@ class HNSpider(scrapy.Spider):
     ]
     website_date_format = "%B %d, %Y"
 
-    def start_requests(self):
-        for u in self.start_urls:
-            yield scrapy.Request(u, callback=self.parse)
-
     def parse(self, response):
+        '''Parses the homepage looking for news
+
+        [Contract]
+        @url https://thehackernews.com/
+        @returns items 0
+        @returns requests 1 8
+        '''
         for href in response.xpath('//a[@class="story-link"]/@href').extract():
             request = scrapy.Request(
                 href,
-                callback = self.parse_article
+                callback=self.parse_article
             )
             yield request
 
     def parse_article(self, response):
+        '''Parses the article to fill the item
+
+        [Contract]
+        @url https://thehackernews.com/2019/03/bithumb-cryptocurrency-hacked.html
+        @returns items 1 1
+        @returns requests 0 0
+        @scrapes _id website title author image text date
+        '''
         item = SeccrawlItem()
         item['_id'] = response.url
         item['website'] = "The Hacker News"
@@ -34,10 +46,11 @@ class HNSpider(scrapy.Spider):
             '//div[contains(@class, "articlebody")]//div[@dir="ltr"]/text()'
         ).extract()
 
-        messy_date = response.xpath('//div[@class="postmeta"]/span/text()').get()
+        messy_date = response.xpath(
+            '//div[@class="postmeta"]/span/text()').get()
         item['date'] = format_date(
             messy_date,
             self.website_date_format
-        ) 
-  
+        )
+
         return item
