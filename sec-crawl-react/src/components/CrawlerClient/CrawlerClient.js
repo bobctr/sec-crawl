@@ -17,15 +17,16 @@ class CrawlerClient extends Component {
 	}
 
 	componentDidMount(){
-		fetch(REST_URL)
-			.then(response => response.json())
-			.then(data => {
-				const { searchQuery: query } = this.state;
-				this.setState({
-					data: data._items,
-					query
-				});
-			});
+		this.interval = setInterval(() =>
+			fetch(REST_URL)
+				.then(response => response.json())
+				.then(data => {
+					const { searchQuery: query } = this.state;
+					this.setState({
+						data: data._items,
+						query
+					});
+				}), 1000);
 	};
 
 	renderNews() {
@@ -47,7 +48,7 @@ class CrawlerClient extends Component {
 
 	styles = {		
 		newsListStyle: {
-			marginTop: '5%',
+			marginTop: '10%',
 		},
 		searchBar: {
 			marginLeft: '25%'

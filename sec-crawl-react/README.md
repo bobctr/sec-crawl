@@ -1,8 +1,6 @@
 # sec-crawl-react
 Simple React REST client of sec-crawl
 
-![Alt text](screenshot.png)
-
 ## Requirements
   - sec-crawl https://github.com/bobctr/sec-crawl
   - npm

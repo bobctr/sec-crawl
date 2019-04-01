@@ -3,6 +3,8 @@
 
 Scraper that collects cybersecurity news from the web + React REST Client 
 
+![](https://drive.google.com/file/d/1pbaVPSSknVrQlXHXZKSBYW38fhmh3z65/view?usp=sharing)
+
 ## Scraped websites (so far)
   - SECURITY | Wired https://www.wired.com/category/security/
   - The Hacker News https://www.thehackernews.com
