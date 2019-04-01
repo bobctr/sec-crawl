@@ -57,22 +57,22 @@ class NewsEntry extends React.Component {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title={this.props.newsInfo['title']}
+                    title={this.props.newsInfo.title}
                     subheader={
                         <span>
-                            {this.props.newsInfo['website']}
+                            {this.props.newsInfo.website}
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            {this.props.newsInfo['date']}
+                            {this.props.newsInfo.date}
                         </span>
                     }
                 />
                 <CardMedia
                     className={classes.media}
-                    image={this.props.newsInfo['image']}
+                    image={this.props.newsInfo.image}
                 />
                 <CardContent>
                     <Typography component="p">
-                        <a href={this.props.newsInfo['_id']}>Go to Article</a>
+                        <a href={this.props.newsInfo._id}>Go to Article</a>
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
@@ -93,7 +93,7 @@ class NewsEntry extends React.Component {
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <CardContent>
                         <Typography>
-                            {this.props.newsInfo['text']}
+                            {this.props.newsInfo.text}
                         </Typography>
                     </CardContent>
                 </Collapse>

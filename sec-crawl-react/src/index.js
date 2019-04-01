@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import CrawlerClient from './CrawlerClient';
+import CrawlerClient from './components/CrawlerClient/CrawlerClient';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<CrawlerClient />, document.getElementById('root'));
