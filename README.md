@@ -3,7 +3,8 @@
 
 Scraper that collects cybersecurity news from the web + React REST Client 
 
-![](https://drive.google.com/file/d/1pbaVPSSknVrQlXHXZKSBYW38fhmh3z65/view?usp=sharing)
+![](https://user-images.githubusercontent.com/33261444/55333954-eda49e80-54a0-11e9-91f7-bf7c5ac8aa87.gif)
+
 
 ## Scraped websites (so far)
   - SECURITY | Wired https://www.wired.com/category/security/
