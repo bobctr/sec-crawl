@@ -14,29 +14,40 @@ class CrawlerClient extends Component {
 			data: null,
 			searchQuery: ""
 		}
+		this.getData = this.getData.bind(this);
 	}
 
-	componentDidMount(){
-		this.interval = setInterval(() =>
-			fetch(REST_URL)
-				.then(response => response.json())
-				.then(data => {
-					const { searchQuery: query } = this.state;
-					this.setState({
-						data: data._items,
-						query
-					});
-				}), 1000);
+	getData() {
+		const xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState !== 4) return;
+			if (xhr.status >= 200 && xhr.status < 300) {
+				const data = JSON.parse(xhr.responseText);
+				this.setState({
+					data: data._items,
+				});
+			}
+		}
+		xhr.open('GET', REST_URL);
+		xhr.send();
+	}
+
+	componentDidMount() {
+		this.interval = setInterval(this.getData, 2000)
 	};
+
+	componentWillUnmount() {
+		clearInterval(this.interval);
+	}
 
 	renderNews() {
 		// filter by title
 		const filteredData = this.state.data.filter(element => {
 			return element.title.toLowerCase().includes(this.state.searchQuery.toLowerCase());
 		});
-		
+
 		return filteredData.map((newsEntry) =>
-			< NewsEntry newsInfo={newsEntry} key={newsEntry._id}/>
+			< NewsEntry newsInfo={newsEntry} key={newsEntry._id} />
 		);
 	}
 
@@ -46,7 +57,7 @@ class CrawlerClient extends Component {
 		})
 	}
 
-	styles = {		
+	styles = {
 		newsListStyle: {
 			marginTop: '10%',
 		},
@@ -64,12 +75,12 @@ class CrawlerClient extends Component {
 							<Typography variant="h6" color="inherit">
 								sec-crawl-news
 							</Typography>
-							<div style={this.styles.searchBar}>
-								<SearchBar 
+							<div id="searchbar" style={this.styles.searchBar}>
+								<SearchBar
 									onChange={this.handleSearchChange.bind(this)}
 								/>
-							</div>		
-						</Toolbar>					
+							</div>
+						</Toolbar>
 					</AppBar>
 				</div>
 				<div style={this.styles.newsListStyle}>

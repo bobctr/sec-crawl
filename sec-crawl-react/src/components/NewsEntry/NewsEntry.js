@@ -38,8 +38,8 @@ const styles = theme => ({
 });
 
 class NewsEntry extends React.Component {
-    state = { 
-        expanded: false 
+    state = {
+        expanded: false
     };
 
     handleExpandClick = () => {
@@ -49,35 +49,42 @@ class NewsEntry extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <Card className={classes.card}>
+            <Card className={classes.card + ' news-entry'}>
                 <CardHeader
-                    className={classes.cardheader}
+                    className={classes.cardheader + ' news-header'}
                     action={
                         <IconButton>
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title={this.props.newsInfo.title}
-                    subheader={
-                        <span>
-                            {this.props.newsInfo.website}
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            {this.props.newsInfo.date}
+                    title={
+                        <span className='news-title'>
+                            {this.props.newsInfo.title}
                         </span>
+                    }
+                    subheader={
+                        <div className='website-and-date'>
+                            <span className='news-website'>
+                                {this.props.newsInfo.website}
+                            </span>
+                            <span className='news-date' style={{ marginLeft: '10px' }}>
+                                {this.props.newsInfo.date}
+                            </span>
+                        </div>
                     }
                 />
                 <CardMedia
-                    className={classes.media}
+                    className={classes.media + ' news-image'}
                     image={this.props.newsInfo.image}
                 />
                 <CardContent>
                     <Typography component="p">
-                        <a href={this.props.newsInfo._id}>Go to Article</a>
+                        <a className='news-link' href={this.props.newsInfo._id}>Go to Article</a>
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
                     <Typography>
-                        Preview: 
+                        Preview:
                     </Typography>
                     <IconButton
                         className={classnames(classes.expand, {
@@ -92,9 +99,11 @@ class NewsEntry extends React.Component {
                 </CardActions>
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography>
-                            {this.props.newsInfo.text}
-                        </Typography>
+                        <div className='news-text'>
+                            <Typography>
+                                {this.props.newsInfo.text}
+                            </Typography>
+                        </div>
                     </CardContent>
                 </Collapse>
             </Card>

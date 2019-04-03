@@ -34,3 +34,4 @@ coverage.xml
 
 .vscode/
 *.log
+last_crawl_items.jl

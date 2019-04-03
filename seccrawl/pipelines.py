@@ -12,6 +12,8 @@ import json
 
 
 class MongoDBPipeline(object):
+    '''Pipeline storing the processed items in MongoDB'''
+
     collection_name = 'news'
 
     def __init__(self, mongo_uri, mongo_db):
@@ -45,4 +47,19 @@ class MongoDBPipeline(object):
         spider.log(
             "News added to MongoDB database!"
         )
+        return item
+
+
+class JsonWriterPipeline(object):
+    '''Pipeline printing the processed items in JSON format'''
+
+    def open_spider(self, spider):
+        self.file = open('last_crawl_items.jl', 'w')
+
+    def close_spider(self, spider):
+        self.file.close()
+
+    def process_item(self, item, spider):
+        line = json.dumps(dict(item)) + "\n"
+        self.file.write(line)
         return item
