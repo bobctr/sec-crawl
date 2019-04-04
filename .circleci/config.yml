@@ -5,14 +5,7 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@1.5.0
-
-executors:
-  with-chrome:
-    docker:
-      - image: 'cypress/browsers:chrome69'
-
-    working_directory: /home/circleci/project/sec-crawl-react
+  cypress: cypress-io/cypress@1
 
 jobs:
   build_server:
@@ -51,8 +44,9 @@ jobs:
 workflows:
   build:
     jobs:
+      - build_server
+      - cypress/install:
+          build: 'cd sec-crawl-react && npm run build'
       - cypress/run:
           record: true
-          executor: with-chrome
-      - build_server
-
+          start: 'cd sec-crawl-react && npm start'
