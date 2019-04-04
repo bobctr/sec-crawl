@@ -6,13 +6,13 @@ version: 2.1
 
 orbs:
   cypress: cypress-io/cypress@1
-  
+
 executors:
   with-chrome:
     docker:
       - image: 'cypress/browsers:chrome69'
 
-    working_directory: ~/sec-crawl/sec-crawl-react
+    working_directory: /home/circleci/project/sec-crawl-react
 
 jobs:
   build_server:
@@ -38,7 +38,8 @@ jobs:
       - run:
           name: run tests
           command: |
-            sudo pip install pytest
+            . venv/bin/activate
+            pip install pytest
             python -m pytest
 
       - save_cache:
