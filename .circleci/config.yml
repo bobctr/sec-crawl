@@ -1,51 +1,26 @@
-# Python CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-python/ for more details
-#
-version: 2.1
-
-orbs:
-  cypress: cypress-io/cypress@1
-
+version: 2
 jobs:
-  build_server:
+  build:
     docker:
-      - image: circleci/python:3.7.1
-
+      - image: cypress/base:10
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/sec-crawl-react
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
-            - v1-dependencies-
-
+            - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
       - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements.txt
-
-      - run:
-          name: run tests
-          command: |
-            . venv/bin/activate
-            pip install pytest
-            python -m pytest
-
+          name: Install Dependencies
+          command: npm ci
       - save_cache:
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+          # cache NPM modules and the folder with the Cypress binary
           paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-
-workflows:
-  build:
-    jobs:
-      - cypress/install:
-          build: 'cd sec-crawl-react && npm run build'
-      - cypress/run:
-          record: true
-          start: 'cd sec-crawl-react && npm start'
+            - ~/.npm
+            - ~/.cache
+      - run: $(npm bin)/cypress run
