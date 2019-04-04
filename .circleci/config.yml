@@ -8,18 +8,16 @@ jobs:
           TERM: xterm
     steps:
       - checkout
+      - run: cd sec-crawl-react
       - restore_cache:
-          working_directory: ~/sec-crawl-react
           keys:
             - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
             - v1-deps-{{ .Branch }}
             - v1-deps
       - run:
-          working_directory: ~/sec-crawl-react
           name: Install Dependencies
           command: npm ci
       - save_cache:
-          working_directory: ~/sec-crawl-react
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           # cache NPM modules and the folder with the Cypress binary
           paths:
