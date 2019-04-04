@@ -4,7 +4,7 @@
 #
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.5.0
+  cypress: cypress-io/cypress@1
 jobs:
   build_server:
     docker:
@@ -34,22 +34,16 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
-  build_client:      
-    working_directory: ~/seccrawl/sec-crawl-react
-    steps:
-      - cypress/install:
-        name: 'Linux install'
-        build: 'npm run build'
-
-      - cypress/run:
-          name: '3 machines'
-          requires:
-            - Linux install
-          record: true
-          start: 'npm start'
 
 workflows:
   build:
     jobs:
       - build_server
-      - build_client
+      - cypress/install:
+          build: 'npm run build'
+
+      - cypress/run:
+          requires:
+            - cypress/install
+          record: true
+          start: 'npm start'
