@@ -44,7 +44,6 @@ jobs:
 workflows:
   build:
     jobs:
-      - build_server
       - cypress/install:
           build: 'cd sec-crawl-react && npm run build'
       - cypress/run:
