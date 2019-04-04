@@ -33,8 +33,9 @@ jobs:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
-  cypress/run
-    - working_directory: ~/seccrawl/sec-crawl-react
+
+  cypress/run:
+    working_directory: ~/seccrawl/sec-crawl-react
 
 workflows:
   build:
