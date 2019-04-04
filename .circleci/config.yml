@@ -10,8 +10,8 @@ executors:
   with-chrome:
     docker:
       - image: 'cypress/browsers:chrome69'
-      
-    working_directory: ~/sec-crawl-react
+
+    working_directory: /home/circleci/sec-crawl-react
 
 jobs:
   build_server:
