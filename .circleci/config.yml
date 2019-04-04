@@ -3,8 +3,15 @@
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
 version: 2.1
+
 orbs:
   cypress: cypress-io/cypress@1
+executors:
+  with-chrome:
+    docker:
+      - image: 'cypress/browsers:chrome69'
+    working_directory: ~/seccrawl/sec-crawl-react
+
 jobs:
   build_server:
     docker:
@@ -40,4 +47,4 @@ workflows:
       - build_server
       - cypress/run:
           record: true
-          working_directory: ~/seccrawl/sec-crawl-react
+          executor: with-chrome
