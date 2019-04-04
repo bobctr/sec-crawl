@@ -11,14 +11,14 @@ executors:
     docker:
       - image: 'cypress/browsers:chrome69'
 
-    working_directory: /home/circleci/sec-crawl-react
+    working_directory: ~/project/sec-crawl-react
 
 jobs:
   build_server:
     docker:
       - image: circleci/python:3.7.1
 
-    working_directory: ~/seccrawl
+    working_directory: ~/project/seccrawl
 
     steps:
       - checkout
