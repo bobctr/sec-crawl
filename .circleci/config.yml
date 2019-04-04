@@ -15,11 +15,11 @@ jobs:
             - v1-deps
       - run:
           name: Install Dependencies
-          command: npm ci
+          command: cd sec-crawl-react && npm run build
       - save_cache:
           key: v1-deps-{{ .Branch }}-{{ checksum "sec-crawl-react/package.json" }}
           # cache NPM modules and the folder with the Cypress binary
           paths:
             - ~/.npm
             - ~/.cache
-      - run: $(npm bin)/cypress run
+      - run: sec-crawl-react/node_modules/.bin/cypress run
