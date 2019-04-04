@@ -10,6 +10,7 @@ executors:
   with-chrome:
     docker:
       - image: 'cypress/browsers:chrome69'
+      
     working_directory: ~/sec-crawl-react
 
 jobs:
