@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/base:10
         environment:
           ## this enables colors in the output
           TERM: xterm
