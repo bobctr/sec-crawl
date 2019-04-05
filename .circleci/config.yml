@@ -54,6 +54,7 @@ jobs:
           command: cd sec-crawl-react && node_modules/.bin/cypress run
 
 workflows:
+  version: 2
   build:
     jobs:
       - build_server
