@@ -50,6 +50,9 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run:
+          command: npm start
+          background: true
+      - run:
           name: Run tests (Cypress) 
           command: cd sec-crawl-react && node_modules/.bin/cypress run
 
