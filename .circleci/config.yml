@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:4.8.2
+      - image: circleci/node:latest
         environment:
           ## this enables colors in the output
           TERM: xterm
@@ -15,11 +15,12 @@ jobs:
             - v1-deps
       - run:
           name: Install Dependencies
-          command: cd sec-crawl-react && npm run build
+          command: cd sec-crawl-react && npm install
       - save_cache:
           key: v1-deps-{{ .Branch }}-{{ checksum "sec-crawl-react/package.json" }}
           # cache NPM modules and the folder with the Cypress binary
           paths:
             - ~/.npm
             - ~/.cache
+      - run: cd sec-crawl-react && npm start
       - run: sec-crawl-react/node_modules/.bin/cypress run
