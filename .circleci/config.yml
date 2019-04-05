@@ -22,5 +22,4 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: cd sec-crawl-react && npm start
       - run: sec-crawl-react/node_modules/.bin/cypress run
