@@ -1,6 +1,34 @@
 version: 2
+
 jobs:
-  build:
+  build_server:
+    docker:
+      - image: circleci/python:3.7.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+      - run:
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            pip install pytest
+            python -m pytest
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+  build_client:
     docker:
       - image: cypress/base:10
         environment:
@@ -18,8 +46,15 @@ jobs:
           command: cd sec-crawl-react && npm ci
       - save_cache:
           key: v2-deps-{{ .Branch }}-{{ checksum "sec-crawl-react/package.json" }}
-          # cache NPM modules and the folder with the Cypress binary
           paths:
             - ~/.npm
             - ~/.cache
-      - run: sec-crawl-react/node_modules/.bin/cypress run
+      - run:
+          name: Run tests (Cypress) 
+          command: cd sec-crawl-react && node_modules/.bin/cypress run
+
+workflows:
+  build:
+    jobs:
+      - build_server
+      - build_client
