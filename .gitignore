@@ -29,9 +29,6 @@ pip-delete-this-directory.txt
 nosetests.xml
 coverage.xml
 
-# Scrapy reports
-*.html
-
 .vscode/
 *.log
 last_crawl_items.jl
