@@ -33,6 +33,7 @@ Since the purpose of this project is mainly heuristic, I would like to point out
 ### React client
   - **React libraries and structure** (JSX, components, props and state)
   - how to use **Material-UI** framework to create nice-looking and fluid UX 
+  - how to use **Cypress** for end-to-end testing, mapping the requests to the REST server to a mocked response
 
 
 ----------------------------------------------------------------
