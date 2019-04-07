@@ -26,7 +26,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: - v1-dependencies-{{ checksum "server/requirements.txt" }}-{{ checksum "seccrawl/requirements.txt" }}
+          key: v1-dependencies-{{ checksum "server/requirements.txt" }}-{{ checksum "seccrawl/requirements.txt" }}
 
   build_client:
     docker:
