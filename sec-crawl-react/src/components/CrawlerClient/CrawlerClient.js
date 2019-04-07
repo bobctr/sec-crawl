@@ -83,7 +83,7 @@ class CrawlerClient extends Component {
 						</Toolbar>
 					</AppBar>
 				</div>
-				<div style={this.styles.newsListStyle}>
+				<div className="news-list" style={this.styles.newsListStyle}>
 					{
 						this.state &&
 						this.state.data &&

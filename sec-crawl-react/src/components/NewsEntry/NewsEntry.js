@@ -89,7 +89,7 @@ class NewsEntry extends React.Component {
                     <IconButton
                         className={classnames(classes.expand, {
                             [classes.expandOpen]: this.state.expanded,
-                        })}
+                        }) + ' expand-icon'}
                         onClick={this.handleExpandClick}
                         aria-expanded={this.state.expanded}
                         aria-label="Show more"
