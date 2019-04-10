@@ -1,40 +1,44 @@
+import os
+from urllib.parse import quote_plus
+
+X_DOMAINS = '*'
+X_HEADERS = ['Authorization', 'Content-type']
+
 DOMAIN = {
-    'news':{
-        'schema':{
-            '_id':{
-                'type':'string',
+    'news': {
+        'schema': {
+            '_id': {
+                'type': 'string',
             },
-            'title':{
-                'type':'string',
+            'title': {
+                'type': 'string',
             },
-            'author':{
-                'type':'string',
+            'author': {
+                'type': 'string',
             },
-            'text':{
-                'type':'string',            
+            'text': {
+                'type': 'string',
             },
-            'date':{
-                'type':'string',            
+            'date': {
+                'type': 'string',
             },
-            'image':{
-                'type':'string',            
+            'image': {
+                'type': 'string',
             },
-            'website':{
-                'type':'string',            
+            'website': {
+                'type': 'string',
             }
         }
     }
 }
-# Let's just use the local mongod instance. Edit as needed.
 
-# Please note that MONGO_HOST and MONGO_PORT could very well be left
-# out as they already default to a bare bones local 'mongod' instance.
-MONGO_HOST = 'localhost'
-MONGO_PORT = 27017
-
-# Skip these if your db has no auth. But it really should.
-# MONGO_USERNAME = '<your username>'
-# MONGO_PASSWORD = '<your password>'
-# MONGO_AUTH_SOURCE = 'admin'  # needed if --auth mode is enabled
-
+MONGO_USER = quote_plus(str(os.environ.get('MONGO_USER')))
+MONGO_PSW = quote_plus(str(os.environ.get('MONGO_PSW'))) 
+MONGO_HOSTNAME = quote_plus(str(os.environ.get('MONGO_HOSTNAME')))
 MONGO_DBNAME = 'sec-crawl'
+if((MONGO_USER, MONGO_PSW) is not (None, None)):
+    MONGO_URI = f'mongodb+srv://{MONGO_USER}:{MONGO_PSW}@{MONGO_HOSTNAME}/{MONGO_DBNAME}?retryWrites=true'
+else:
+    MONGO_HOST = 'localhost'
+    MONGO_PORT = 27017
+

@@ -30,5 +30,10 @@ nosetests.xml
 coverage.xml
 
 .vscode/
+dev_*
 *.log
 last_crawl_items.jl
+
+node_modules
+build
+

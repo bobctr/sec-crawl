@@ -1,0 +1,5 @@
+*serverless*
+server/wsgi_handler.py
+.requirements
+package.json
+package-lock.json

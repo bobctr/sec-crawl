@@ -2,6 +2,9 @@
 
 # Scrapy settings for seccrawl project
 
+import os
+from urllib.parse import quote_plus
+
 BOT_NAME = 'seccrawl'
 
 SPIDER_MODULES = ['seccrawl.spiders']
@@ -42,5 +45,12 @@ ITEM_PIPELINES = {
     # 'seccrawl.pipelines.JsonWriterPipeline' : 200,
  }
 
+MONGO_USER = ''
+MONGO_PSW = '' 
 MONGO_URI = 'mongodb://127.0.0.1:27017'
+try:
+    from dev_settings import *
+except:
+    pass
 MONGO_DATABASE = 'sec-crawl'
+
