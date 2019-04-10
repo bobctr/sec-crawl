@@ -3,6 +3,9 @@
 
 Scraper that collects cybersecurity news from the web + React REST Client 
 
+[**TRY IT OUT**](http://sec-crawl-react-20190408223711-hostingbucket-screactenv.s3-website.eu-central-1.amazonaws.com/)
+
+
 ![](https://user-images.githubusercontent.com/33261444/55333954-eda49e80-54a0-11e9-91f7-bf7c5ac8aa87.gif)
 
 
@@ -34,6 +37,12 @@ Since the purpose of this project is mainly personal education, I would like to 
   - **React libraries and structure** (JSX, components, props and state)
   - how to use **Material-UI** (https://github.com/mui-org/material-ui) framework to create nice-looking and fluid UX 
   - how to use **Cypress** (https://github.com/cypress-io/cypress) for end-to-end testing, mapping the requests to the REST server to a mocked response
+  
+### Cloud
+  - **AWS S3 bucket** for static hosting of the React Client
+  - **AWS Lambda** for **Serverless** REST interface (Python + Eve)
+  - **AWS Lambda** for **scheduled scraping**
+  - **MongoDB Atlas** for database hosting
 
 
 ----------------------------------------------------------------
