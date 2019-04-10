@@ -40,7 +40,7 @@ Since the purpose of this project is mainly personal education, I would like to 
   
 ### Cloud
   - **AWS S3 bucket** for static hosting of the React Client
-  - **AWS Lambda** for **Serverless** REST interface (Python + Eve)
+  - **AWS Lambda** for REST interface (Python + Eve)
   - **AWS Lambda** for **scheduled scraping**
   - **MongoDB Atlas** for database hosting
 
