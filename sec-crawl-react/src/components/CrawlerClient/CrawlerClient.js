@@ -33,7 +33,8 @@ class CrawlerClient extends Component {
 	}
 
 	componentDidMount() {
-		this.interval = setInterval(this.getData, 2000)
+		this.getData();
+		this.interval = setInterval(this.getData, 10000);
 	};
 
 	componentWillUnmount() {
@@ -59,7 +60,7 @@ class CrawlerClient extends Component {
 
 	styles = {
 		newsListStyle: {
-			marginTop: '10%',
+			marginTop: '5%',
 		},
 		searchBar: {
 			marginLeft: '25%'

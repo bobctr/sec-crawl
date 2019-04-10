@@ -1,1 +1,1 @@
-export const REST_URL = "http://localhost:5000/news"
+export const REST_URL = "https://dridn90mr3.execute-api.us-east-1.amazonaws.com/dev/news"

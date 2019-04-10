@@ -45,11 +45,9 @@ ITEM_PIPELINES = {
     # 'seccrawl.pipelines.JsonWriterPipeline' : 200,
  }
 
-MONGO_USER = ''
-MONGO_PSW = '' 
 MONGO_URI = 'mongodb://127.0.0.1:27017'
 try:
-    from dev_settings import *
+    from .dev_settings import MONGO_URI
 except:
     pass
 MONGO_DATABASE = 'sec-crawl'
