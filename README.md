@@ -35,13 +35,13 @@ Since the purpose of this project is mainly personal education, I would like to 
 
 ### React client
   - **React libraries and structure** (JSX, components, props and state)
-  - how to use **Material-UI** (https://github.com/mui-org/material-ui) framework to create nice-looking and fluid UX 
+  - how to use **Material-UI** (https://github.com/mui-org/material-ui) framework to create nice-looking and fluid UX with a responsive design
   - how to use **Cypress** (https://github.com/cypress-io/cypress) for end-to-end testing, mapping the requests to the REST server to a mocked response
   
 ### Cloud
   - **AWS S3 bucket** for static hosting of the React Client
-  - **AWS Lambda** for REST interface (Python + Eve)
-  - **AWS Lambda** for **scheduled scraping**
+  - **AWS Lambda** for REST interface (Python + Eve) and scheduled scraping
+  - Easy and quick deploy on cloud using **Amplify** and **Serverless**
   - **MongoDB Atlas** for database hosting
 
 
