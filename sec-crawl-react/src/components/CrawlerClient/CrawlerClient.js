@@ -87,6 +87,7 @@ class CrawlerClient extends Component {
 									sec-crawl-news
 								</Typography>
 								<SearchBar
+									id="searchbar"
 									onChange={this.handleSearchChange.bind(this)}
 								/>
 							</Toolbar>
