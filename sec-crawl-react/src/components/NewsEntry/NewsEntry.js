@@ -15,9 +15,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const styles = theme => ({
     card: {
-        width: '50%',
+        width: '80%',
         marginTop: '1%',
-        marginLeft: '25%',
+        marginLeft: 'auto',
+        marginRight: 'auto'
     },
     media: {
         height: 0,
@@ -35,6 +36,23 @@ const styles = theme => ({
     expandOpen: {
         transform: 'rotate(180deg)',
     },
+    blockEllipsis: {
+        display: '-webkit-box',
+        maxWidth: '90%',
+        lineHeight: '1',
+        '-webkit-line-clamp': '2',
+        '-webkit-box-orient': 'vertical',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+    },
+    // newsTitle: {
+    //     [theme.breakpoints.down('sm')]: {
+    //         fontSize: '10px'
+    //     },
+    //     [theme.breakpoints.up('md')]: {
+    //         fontSize: '13px'
+    //     },
+    // }
 });
 
 class NewsEntry extends React.Component {
@@ -58,7 +76,7 @@ class NewsEntry extends React.Component {
                         </IconButton>
                     }
                     title={
-                        <span className='news-title'>
+                        <span className={classes.blockEllipsis + ' news-title'}>
                             {this.props.newsInfo.title}
                         </span>
                     }

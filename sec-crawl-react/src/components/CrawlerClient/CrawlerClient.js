@@ -5,7 +5,24 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import SearchBar from '../SearchBar/SearchBar';
+import { Grid, withStyles } from '@material-ui/core';
 
+const styles = theme => ({
+	newsList: {
+		marginTop: '80px',
+		marginLeft: 'auto',
+		marginRight: 'auto',
+	},
+	appbarTitle: {
+		position: 'absolute',
+		[theme.breakpoints.down('sm')]: {
+			display: 'none'
+		},
+		[theme.breakpoints.up('md')]: {
+			display: 'block'
+		},
+	}
+})
 
 class CrawlerClient extends Component {
 	constructor(props) {
@@ -58,42 +75,34 @@ class CrawlerClient extends Component {
 		})
 	}
 
-	styles = {
-		newsListStyle: {
-			marginTop: '5%',
-		},
-		searchBar: {
-			marginLeft: '25%'
-		}
-	};
-
 	render() {
+		const { classes } = this.props;
 		return (
 			<div>
-				<div>
-					<AppBar position="fixed" color="default">
-						<Toolbar>
-							<Typography variant="h6" color="inherit">
-								sec-crawl-news
-							</Typography>
-							<div id="searchbar" style={this.styles.searchBar}>
+				<Grid container className="mainGreed" spacing={8}>
+					<Grid item>
+						<AppBar position="fixed" color="default">
+							<Toolbar>
+								<Typography className={classes.appbarTitle} variant="h6" color="inherit">
+									sec-crawl-news
+								</Typography>
 								<SearchBar
 									onChange={this.handleSearchChange.bind(this)}
 								/>
-							</div>
-						</Toolbar>
-					</AppBar>
-				</div>
-				<div className="news-list" style={this.styles.newsListStyle}>
-					{
-						this.state &&
-						this.state.data &&
-						this.renderNews()
-					}
-				</div>
+							</Toolbar>
+						</AppBar>
+					</Grid>
+					<Grid item className={classes.newsList}>
+						{
+							this.state &&
+							this.state.data &&
+							this.renderNews()
+						}
+					</Grid>
+				</Grid>
 			</div>
 		)
 	}
 }
 
-export default CrawlerClient;
+export default withStyles(styles)(CrawlerClient);

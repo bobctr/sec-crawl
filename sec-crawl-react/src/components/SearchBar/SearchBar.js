@@ -12,6 +12,7 @@ const styles = {
 		display: 'flex',
 		alignItems: 'center',
 		width: 400,
+		margin: 'auto',
 	},
 	input: {
 		marginLeft: 8,
