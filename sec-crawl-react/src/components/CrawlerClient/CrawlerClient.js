@@ -86,10 +86,11 @@ class CrawlerClient extends Component {
 								<Typography className={classes.appbarTitle} variant="h6" color="inherit">
 									sec-crawl-news
 								</Typography>
-								<SearchBar
-									id="searchbar"
-									onChange={this.handleSearchChange.bind(this)}
-								/>
+								<div id="searchbar">
+									<SearchBar
+										onChange={this.handleSearchChange.bind(this)}
+									/>
+								</div>
 							</Toolbar>
 						</AppBar>
 					</Grid>
