@@ -1,7 +1,7 @@
 # sec-crawl
 [![CircleCI](https://circleci.com/gh/bobctr/sec-crawl.svg?style=svg)](https://circleci.com/gh/bobctr/sec-crawl)
 
-Scraper that collects cybersecurity news from the web + React REST Client 
+Scraper that collects cybersecurity news from the web + React Client 
 
 [**TRY IT OUT**](http://sec-crawl-react-20190408223711-hostingbucket-screactenv.s3-website.eu-central-1.amazonaws.com/)
 
