@@ -3,8 +3,6 @@
 
 Scraper that collects cybersecurity news from the web + React Client 
 
-[**TRY IT OUT**](http://sec-crawl-react-20190408223711-hostingbucket-screactenv.s3-website.eu-central-1.amazonaws.com/)
-
 
 ![](https://user-images.githubusercontent.com/33261444/55333954-eda49e80-54a0-11e9-91f7-bf7c5ac8aa87.gif)
 
